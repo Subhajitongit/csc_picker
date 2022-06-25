@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'model/select_status_model.dart';
 
 enum Layout { vertical, horizontal }
+
 enum CountryFlag { SHOW_IN_DROP_DOWN_ONLY, ENABLE, DISABLE }
+
 enum DefaultCountry {
   Afghanistan,
   Aland_Islands,
@@ -260,6 +262,7 @@ enum DefaultCountry {
   Curacao,
   Sint_Maarten_Dutch_part
 }
+
 const Map<DefaultCountry, int> DefaultCountries = {
   DefaultCountry.Afghanistan: 0,
   DefaultCountry.Aland_Islands: 1,
@@ -810,9 +813,24 @@ class CSCPickerState extends State<CSCPicker> {
                   SizedBox(
                     height: 10.0,
                   ),
-                  widget.showStates && widget.showCities
-                      ? cityDropdown()
-                      : Container()
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Expanded(
+                          child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: TextFormField(
+                                  decoration: InputDecoration(
+                                      hintText: "PIN Code",
+                                      labelText: "PIN Code")))),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      widget.showStates && widget.showCities
+                          ? Expanded(child: cityDropdown())
+                          : Container(),
+                    ],
+                  )
                 ],
               ),
       ],
