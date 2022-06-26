@@ -822,7 +822,7 @@ class CSCPickerState extends State<CSCPicker> {
                               child: TextFormField(
                                   decoration: InputDecoration(
                                       hintText: "PIN Code",
-                                      labelText: "PIN Code",contentPadding: const EdgeInsets.fromLTRB(20, 13, 20, 13),)))),
+                                      labelText: "PIN Code",contentPadding: const EdgeInsets.fromLTRB(20, 7, 20, 7),)))),
                       SizedBox(
                         width: 10.0,
                       ),
