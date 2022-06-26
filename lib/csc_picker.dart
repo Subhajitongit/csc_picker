@@ -818,7 +818,7 @@ class CSCPickerState extends State<CSCPicker> {
                     children: <Widget>[
                       Expanded(
                           child: Padding(
-                              padding: const EdgeInsets.symetric(vertical:8.0),
+                              padding: const EdgeInsets.symmetric(vertical:8.0),
                               child: TextFormField(
                                   decoration: InputDecoration(
                                       hintText: "PIN Code",
