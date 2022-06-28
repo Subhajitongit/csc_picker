@@ -518,11 +518,13 @@ const Map<DefaultCountry, int> DefaultCountries = {
 
 class CSCPicker extends StatefulWidget {
   ///CSC Picker Constructor
+  
   const CSCPicker({
     Key? key,
     this.onCountryChanged,
     this.onStateChanged,
     this.onCityChanged,
+    this.pinController,
     this.selectedItemStyle,
     this.dropdownHeadingStyle,
     this.dropdownItemStyle,
@@ -571,6 +573,8 @@ class CSCPicker extends StatefulWidget {
   final String countrySearchPlaceholder;
   final String stateSearchPlaceholder;
   final String citySearchPlaceholder;
+
+  final TextEditingController? pinController;
 
   final String countryDropdownLabel;
   final String stateDropdownLabel;
@@ -817,10 +821,14 @@ class CSCPickerState extends State<CSCPicker> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Expanded(
-                              child: TextFormField(
-                                  decoration: InputDecoration(
-                                      hintText: "PIN Code",
-                                      labelText: "PIN Code",contentPadding: const EdgeInsets.fromLTRB(20, 7, 20, 7),))),
+                          child: TextFormField(
+                            controller: widget.pinController,
+                            autofillHints: [AutofillHints.postalAddressExtendedPostalCode],
+                              decoration: InputDecoration(
+                        hintText: "PIN Code",
+                        labelText: "PIN Code",
+                        contentPadding: const EdgeInsets.fromLTRB(20, 7, 20, 7),
+                      ))),
                       SizedBox(
                         width: 10.0,
                       ),
